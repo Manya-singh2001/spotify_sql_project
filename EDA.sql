@@ -50,3 +50,78 @@ CREATE TABLE spotify (
 --3. **Use a `WITH` clause to calculate the difference between the highest and lowest energy values for tracks in each album.**
 --5. Find tracks where the energy-to-liveness ratio is greater than 1.2.
 --6. Calculate the cumulative sum of likes for tracks ordered by the number of views, using window functions.
+
+
+-- EDA 
+
+SELECT COUNT(*) FROM spotify ;
+SELECT COUNT(DISTINCT artist ) FROM spotify ;
+SELECT DISTINCT album_type FROM spotify ;
+
+SELECT MAX(duration_min) FROM spotify;
+SELECT MIN(duration_min) FROM spotify;
+
+SELECT * FROM spotify 
+WHERE duration_min = 0 ;
+
+DELETE FROM spotify 
+WHERE duration_min = 0 ;
+SELECT DISTINCT channel FROM spotify ;
+
+-----------------------------------------------------
+-- DATA ANALYSIS EASY CATEGORY 
+-----------------------------------------------------
+
+-- Easy Level
+--1. Retrieve the names of all tracks that have more than 1 billion streams.
+
+SELECT * FROM spotify 
+WHERE stream > 1,0000,00000 ;
+
+--2. List all albums along with their respective artists.
+
+SELECT 
+    DISTINCT album, artist 
+FROM spotify 
+    ORDER BY 1;
+
+--3. Get the total number of comments for tracks where `licensed = TRUE`.
+
+SELECT
+    SUM(comments) as total_comments
+    FROM spotify
+WHERE licensed = 'true' ;
+
+--4. Find all tracks that belong to the album type `single`.
+
+SELECT * FROM spotify 
+WHERE album_type = 'single' ;
+
+--5. Count the total number of tracks by each artist.
+
+SELECT 
+artist , ---1
+COUNT(*) as total_no_songs ---2
+FROM spotify 
+GROUP BY artist 
+ORDER BY 2 DESC ;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
