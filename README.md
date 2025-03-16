@@ -54,3 +54,18 @@ After the data is inserted, various SQL queries can be written to explore and an
   
 #### Advanced Queries
 - Nested subqueries, window functions, CTEs, and performance optimization.
+
+## 15 Practice Questions
+
+### DATA ANALYSIS AND FINDINGS 
+
+1. **Retrieve the names of all tracks that have more than 1 billion streams.**;
+   ```sql
+   SELECT * FROM spotify 
+   WHERE stream > 1,0000,00000 ;
+
+   ```
+   
+
+
+   
