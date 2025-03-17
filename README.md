@@ -59,9 +59,9 @@ After the data is inserted, various SQL queries can be written to explore and an
 
 ### DATA ANALYSIS AND FINDINGS 
 
-1. **Retrieve the names of all tracks that have more than 1 billion streams.**
+1.**Retrieve the names of all tracks that have more than 1 billion streams.**
    
-   ```sql
+  ```sql
    SELECT * FROM spotify 
    WHERE stream > 1,0000,00000 ;
    ```
