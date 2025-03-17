@@ -59,13 +59,40 @@ After the data is inserted, various SQL queries can be written to explore and an
 
 ### DATA ANALYSIS AND FINDINGS 
 
-1. **Retrieve the names of all tracks that have more than 1 billion streams.**;
+1. **Retrieve the names of all tracks that have more than 1 billion streams.**
+   
    ```sql
    SELECT * FROM spotify 
    WHERE stream > 1,0000,00000 ;
+   ```
+
+2.**List all albums along with their respective artists.**
+
+  ```sql
+  SELECT 
+    DISTINCT album, artist 
+  FROM spotify 
+    ORDER BY 1;
 
    ```
-   
+
+3.** Get the total number of comments for tracks where `licensed = TRUE`.**
+
+  ```sql
+  SELECT
+    SUM(comments) as total_comments
+    FROM spotify
+  WHERE licensed = 'true' ;
+
+```
+
+4.**Find all tracks that belong to the album type `single`.**
+
+```sql
+SELECT * FROM spotify 
+WHERE album_type = 'single' ;
+```
+
 
 
    
