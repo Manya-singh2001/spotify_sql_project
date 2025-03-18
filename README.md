@@ -93,7 +93,7 @@ SELECT * FROM spotify
 WHERE album_type = 'single' ;
 ```
 
-5.**Count the total number of tracks by each artist. **
+5.**Count the total number of tracks by each artist.**
 
 ```sql
 SELECT 
@@ -105,7 +105,7 @@ ORDER BY 2 DESC ;
 
 ```
 
-6.**Calculate the average danceability of tracks in each album. **
+6.**Calculate the average danceability of tracks in each album.**
 
 ```sql
 SELECT 
