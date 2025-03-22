@@ -156,3 +156,20 @@ GROUP BY 1 ,2
 ORDER BY 3 DESC;
 
 ```
+
+10.**Retrieve the track names that have been streamed on Spotify more than YouTube.**
+
+```sql
+SELECT *
+(SELECT 
+    track,  
+    COALESCE(SUM(CASE WHEN most_played_on = 'Youtube' THEN stream ELSE 0 END), 0) AS streamed_on_youtube,  
+    COALESCE(SUM(CASE WHEN most_played_on = 'Spotify' THEN stream ELSE 0 END), 0) AS streamed_on_spotify  
+FROM spotify  
+GROUP BY track
+    ) as t1
+WHERE streamed_on_spotify > streamed_on_youtube 
+AND 
+streamed_on_youtube <> 0 ;
+
+```
